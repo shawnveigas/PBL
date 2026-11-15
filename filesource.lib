@@ -1,0 +1,28 @@
+* --- Audio Input Source ---
+.subckt filesource_in outp outn
+afs1 %vd([outp outn]) filesrc_in
+.model filesrc_in filesource (file="guitar.pwl" amploffset=[0] amplscale=[1]
++ timeoffset=0 timescale=1)
+.ends
+
+* --- Output 1 / Second Source ---
+.subckt filesource_in1 outp outn
+afs2 %vd([outp outn]) filesrc_out1
+.model filesrc_out1 filesource (file="piano.pwl" amploffset=[0] amplscale=[1]
++ timeoffset=0 timescale=1)
+.ends
+
+* --- Output 2 / third Source ---
+.subckt filesource_in2 outp outn
+afs2 %vd([outp outn]) filesrc_out2
+.model filesrc_out2 filesource (file="vocal.pwl" amploffset=[0] amplscale=[1]
++ timeoffset=0 timescale=1)
+.ends
+
+
+* --- Output 3 / third Source ---
+.subckt filesource_in3 outp outn
+afs2 %vd([outp outn]) filesrc_out3
+.model filesrc_out3 filesource (file="drum.pwl" amploffset=[0] amplscale=[1]
++ timeoffset=0 timescale=1)
+.ends
